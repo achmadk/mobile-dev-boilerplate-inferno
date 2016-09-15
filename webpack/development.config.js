@@ -1,6 +1,7 @@
 const webpack = require('webpack'),
 path = require('path'),
-WebpackDevServer = require('webpack-dev-server'),
+LiveReloadPlugin = require('webpack-livereload-plugin'),
+// WebpackDevServer = require('webpack-dev-server'),
 BrowserSyncPlugin = require('browser-sync-webpack-plugin')
 
 var webpackConfig = require('../webpack.config')
@@ -17,19 +18,24 @@ webpackConfig.output = {
 }
 
 webpackConfig.devServer = {
+  port: 8080,
   contentBase: path.resolve(__dirname, '../temp'),
   inline: true,
-  hot: true // Activate hot loading
+  // hot: true 
 }
 
-webpackConfig.devtool = 'eval'
+webpackConfig.devtool = 'source-map'
 
 webpackConfig.plugins.unshift(
   new webpack.HotModuleReplacementPlugin(),
   new BrowserSyncPlugin({
     host: 'localhost',
     port: 8070,
-    proxy: 'http://localhost:8080/'
+    proxy: 'http://localhost:8080/',
+    files: '../src/**/*.*'
+  }),
+  new LiveReloadPlugin({
+    appendScriptTag: true
   })
 )
 

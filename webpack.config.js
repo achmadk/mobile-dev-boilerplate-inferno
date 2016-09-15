@@ -13,7 +13,7 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel' // Include the react-hot loader
+      loader: 'babel' // Include the react-hot loader
     }, {
       test: /\.less$/,
       loader: 'style!css!less' // We add the css loader
