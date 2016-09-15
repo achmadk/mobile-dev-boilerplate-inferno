@@ -1,27 +1,25 @@
-import React from 'react';
-import {render} from 'react-dom';
-import {List, Map} from 'immutable';
+import Inferno from 'inferno'
+import {render} from 'inferno-dom'
 
 import initRouter from 'modules/router';
-// import {f7, tabs} from 'modules/app'
 import {isMaterial, isAndroid} from 'modules/utils/if-android'
 
-import SampleComponent from 'components/SampleComponent'
+import SampleComponent from 'components/sample-component'
 
 export * from 'framework7'
 // require('framework7')
 
-require(`framework7/dist/css/framework7.material.min.css`);
-require(`framework7/dist/css/framework7.material.colors.min.css`);
+require(`framework7/dist/css/framework7.${isMaterial()}.min.css`);
+require(`framework7/dist/css/framework7.${isMaterial()}.colors.min.css`);
 require('assets/css-preprocessors/app.less');
 require('ionicons/dist/scss/ionicons.scss');
 
-const todos = List.of(
-	Map({id: 1, text: 'React', status: 'active', editing: false }),
-	Map({id: 2, text: 'Redux', status: 'active', editing: false}),
-	Map({id: 3, text: 'Immutable', status: 'completed', editing: false}),
-	Map({id: 4, text: 'Webpack', status: 'completed', editing: false})
-);
+const todos = [
+	{id: 1, text: 'React', status: 'active', editing: false },
+	{id: 2, text: 'Redux', status: 'active', editing: false},
+	{id: 3, text: 'Immutable', status: 'completed', editing: false},
+	{id: 4, text: 'Webpack', status: 'completed', editing: false}
+];
 
 initRouter();
 
@@ -45,6 +43,6 @@ export var main = f7.addView('.view-main', {
 window.main = main
 
 render(
-  <SampleComponent />,
+  <SampleComponent todos={todos} />,
   document.getElementById('sample-id')
 );
