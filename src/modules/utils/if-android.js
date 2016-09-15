@@ -3,11 +3,11 @@ export function checkCordova() {
 }
 
 export function checkAndroid() {
-	return navigator.userAgent.indexOf('Android') !== -1
+	return navigator.userAgent.indexOf('Android') !== -1 ? true : false
 }
 
 export function isMaterial() {
-	return checkCordova() ? (checkAndroid() ? 'material' : 'ios') : 'ios';
+	return isAndroid() ? 'material' : 'ios'
 }
 
 export function isAndroid() {
@@ -15,7 +15,7 @@ export function isAndroid() {
 }
 
 export function setBackIcon() {
-	return checkCordova() ? (checkAndroid() ? "ion-md-arrow-back" : "ion-ios-arrow-back") : "ion-ios-arrow-back"
+	return isAndroid() ? "ion-md-arrow-back" : "ion-ios-arrow-back"
 }
 
 const closeIconIos = {
@@ -29,29 +29,29 @@ const closeIconAndroid = {
 }
 
 export function setCloseIcon() {
-	return checkCordova() ? (checkAndroid() ? closeIconAndroid : closeIconIos) : closeIconIos
+	return isAndroid() ? closeIconAndroid : closeIconIos
 }
 
 export function setSettingsIcon() {
-	return checkCordova() ? (checkAndroid() ? "ion-md-settings" : "ion-ios-settings") : "ion-ios-settings"
+	return isAndroid() ? "ion-md-settings" : "ion-ios-settings"
 }
 
 export function addPaddingBottom() {
-	return (checkCordova()) ? ((checkAndroid()) ? { paddingBottom: 50 } : {}) : {}
+	return isAndroid() ? { paddingBottom: 50 } : {}
 }
 
-export default function addFixedIcon() {
-	return (checkCordova()) ? ((checkAndroid()) ? "" : " fa-fw") : " fa-fw";
+export function addFixedIcon() {
+	return isAndroid() ? "" : " fa-fw"
 }
 
-export default function addItemInputField() {
-	return (checkCordova()) ? ((checkAndroid()) ? " item-input-field" : "") : "";
+export function addItemInputField() {
+	return isAndroid() ? " item-input-field" : ""
 }
 
-export default function addInputsList() {
-	return (checkCordova()) ? ((checkAndroid()) ? " inputs-list" : "") : "";
+export function addInputsList() {
+	return isAndroid() ? " inputs-list" : ""
 }
 
-export default function addButtonRaised() {
-	return (checkCordova()) ? ((checkAndroid()) ? " button-raised" : "") : "";
+export function addButtonRaised() {
+	return isAndroid() ? " button-raised" : ""
 }
