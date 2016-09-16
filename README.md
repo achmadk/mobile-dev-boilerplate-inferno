@@ -1,1 +1,1 @@
-# mobile-dev-boilerplate
+# mobile-dev-boilerplate-inferno
