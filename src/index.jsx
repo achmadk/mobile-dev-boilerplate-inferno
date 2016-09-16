@@ -18,14 +18,15 @@ const todos = [
 	{id: 1, text: 'React', status: 'active', editing: false },
 	{id: 2, text: 'Redux', status: 'active', editing: false},
 	{id: 3, text: 'Immutable', status: 'completed', editing: false},
-	{id: 4, text: 'Webpack', status: 'completed', editing: false}
+	{id: 4, text: 'Webpack', status: 'completed', editing: false},
+	{id: 5, text: 'Inferno', status: 'active', editing: false}
 ];
 
 initRouter();
 
 // export var F7 = new Framework7({
 export var f7 = new Framework7({
-    modalTitle: 'TurEZ',
+    modalTitle: 'awesome app',
     material: isAndroid(),
     animateNavBackIcon: true,
     pushState: true,
@@ -37,7 +38,7 @@ export var f7 = new Framework7({
 window.f7 = f7
 
 export var main = f7.addView('.view-main', {
-		dynamicNavbar: true
+		dynamicNavbar: !isAndroid()
 })
 
 window.main = main
