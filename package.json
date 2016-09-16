@@ -10,7 +10,7 @@
     "android": "npm run produce && cordova prepare android && cordova run android --device",
     "produce": "webpack --config webpack/production.config.js --progress -p",
     "clean:windows": "rmdir /s /q ./www",
-    "develop": "webpack-dev-server --config webpack/development.config.js",
+    "develop": "webpack-dev-server --config webpack/development.config.js --inline",
     "test": "mocha --compilers js:babel-core/register --require ./test/setup.js \"test/**/*.@(js|jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx"
   },

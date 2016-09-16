@@ -21,7 +21,7 @@ webpackConfig.devServer = {
   port: 8080,
   contentBase: path.resolve(__dirname, '../temp'),
   inline: true,
-  // hot: true 
+  hot: true 
 }
 
 webpackConfig.devtool = 'source-map'
