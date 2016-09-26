@@ -46,7 +46,7 @@
     "babel-preset-stage-1": "6.13.0",
     "babel-preset-stage-2": "6.13.0",
     "browser-sync": "2.16.0",
-    "browser-sync-webpack-plugin": "1.1.2",
+    "browser-sync-webpack-plugin": "1.1.3",
     "chai": "3.5.0",
     "chai-immutable": "1.6.0",
     "clean-webpack-plugin": "0.1.10",
@@ -71,7 +71,7 @@
   },
   "dependencies": {
     "cordova-plugin-background-mode": "0.6.5",
-    "cordova-plugin-crosswalk-webview": "2.0.0",
+    "cordova-plugin-crosswalk-webview": "2.1.0",
     "cordova-plugin-device": "1.1.3",
     "cordova-plugin-google-analytics": "1.6.0",
     "cordova-plugin-splashscreen": "4.0.0",
@@ -84,7 +84,7 @@
     "inferno-dom": "0.7.27",
     "ionicons": "3.0.0",
     "mappersmith": "0.13.3",
-    "moment": "2.15.0",
+    "moment": "2.15.1",
     "numbro": "1.9.3"
   }
 }
