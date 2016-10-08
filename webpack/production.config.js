@@ -7,7 +7,8 @@ var webpackConfig = require('../webpack.config')
 webpackConfig.output = {
   path: path.resolve(__dirname, '../www'),
   publicPath: '',
-  filename: 'bundle.js'
+  filename: 'bundle.js',
+  chunkFilename: './js/[name].js'
 }
 
 webpackConfig.devtool = 'cheap-module-source-map'
@@ -30,7 +31,12 @@ webpackConfig.plugins.push(
   // new webpack.ContextReplacementPlugin(/numbro[\\\/]dist[\\\/]languages$/, /^\.\/en-GB$/),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      warnings: false
+      warnings: false,
+      drop_console: true,
+      dead_code: true,
+      unused: true,
+      booleans: true,
+      if_return: true
     },
     mangle: false
   })
