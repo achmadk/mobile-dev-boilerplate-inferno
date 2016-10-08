@@ -2,17 +2,27 @@ import Inferno from 'inferno'
 import {render} from 'inferno-dom'
 
 import initRouter from 'modules/router';
-import {isMaterial, isAndroid} from 'modules/utils/if-android'
+import {isAndroid} from 'modules/utils/if-android'
 
 import SampleComponent from 'components/sample-component'
 
 export * from 'framework7'
-// require('framework7')
 
-require(`framework7/dist/css/framework7.${isMaterial()}.min.css`);
-require(`framework7/dist/css/framework7.${isMaterial()}.colors.min.css`);
-require('assets/css-preprocessors/app.less');
-require('ionicons/dist/scss/ionicons.scss');
+require.ensure([], require => {
+	if (isAndroid()) {
+		require.ensure([], require => {
+			require(`framework7/dist/css/framework7.material.min.css`);
+			require(`framework7/dist/css/framework7.material.colors.min.css`);
+		}, "style.material" )
+	} else {
+		require.ensure([], require => {
+			require(`framework7/dist/css/framework7.ios.min.css`);
+			require(`framework7/dist/css/framework7.ios.colors.min.css`);
+		}, "style.ios" )
+	}
+	require('assets/css-preprocessors/app.less');
+	require('ionicons/dist/scss/ionicons.scss');
+}, "styles")
 
 const todos = [
 	{id: 1, text: 'React', status: 'active', editing: false },
