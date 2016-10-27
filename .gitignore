@@ -1,5 +1,6 @@
 node_modules
 platforms
 plugins
+temp
 www
 npm-debug.log

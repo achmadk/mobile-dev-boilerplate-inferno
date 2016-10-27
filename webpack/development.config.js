@@ -20,7 +20,7 @@ webpackConfig.output = {
 webpackConfig.devServer = {
   port: 8080,
   contentBase: path.resolve(__dirname, '../temp'),
-  inline: true,
+  outputPath: path.resolve(__dirname, '../temp'),
   hot: true 
 }
 
