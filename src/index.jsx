@@ -1,12 +1,11 @@
-import Inferno from 'inferno'
-import {render} from 'inferno-dom'
+import Inferno, {render} from 'inferno';
 
 import initRouter from 'modules/router';
-import {isAndroid} from 'modules/utils/if-android'
+import {isAndroid} from 'modules/utils/if-android';
 
-import SampleComponent from 'components/sample-component'
+import SampleComponent from 'components/sample-component';
 
-export * from 'framework7'
+import 'framework7';
 
 require.ensure([], require => {
 	if (isAndroid()) {

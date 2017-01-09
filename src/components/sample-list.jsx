@@ -1,15 +1,12 @@
-import Inferno from 'inferno'
-import Component from 'inferno-component'
+import Inferno from 'inferno';
 
-export default class SampleList extends Component {
-  render() {
-    let list = this.props.list
+export default function SampleList({list}) {
+    let {text} = list;
     return(
       <li className="item-content">
         <div className="item-inner">
-          <div className="item-title">{list.text}</div>
+          <div className="item-title">{text}</div>
         </div>
       </li>
-    )
-  }
+    );
 }
